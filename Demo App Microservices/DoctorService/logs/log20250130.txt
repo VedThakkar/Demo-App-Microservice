@@ -1,0 +1,20 @@
+2025-01-30 09:26:02.086 +05:30 [INF] Configured endpoint user-logged-in-queue-doctor, Consumer: DoctorService.Consumers.UserLoggedInConsumer
+2025-01-30 09:26:02.135 +05:30 [INF] Configured endpoint user-register-queue-doctor, Consumer: DoctorService.Consumers.UserRegisteredConsumer
+2025-01-30 09:26:02.493 +05:30 [WRN] Overriding address(es) 'http://localhost:5057'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-30 09:26:02.647 +05:30 [INF] Bus started: "rabbitmq://localhost/"
+2025-01-30 09:31:11.124 +05:30 [INF] Bus stopped: "rabbitmq://localhost/"
+2025-01-30 10:26:32.338 +05:30 [INF] Configured endpoint user-logged-in-queue-doctor, Consumer: DoctorService.Consumers.UserLoggedInConsumer
+2025-01-30 10:26:32.384 +05:30 [INF] Configured endpoint user-register-queue-doctor, Consumer: DoctorService.Consumers.UserRegisteredConsumer
+2025-01-30 10:26:32.694 +05:30 [WRN] Overriding address(es) 'http://localhost:5057'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-30 10:26:32.773 +05:30 [INF] Bus started: "rabbitmq://localhost/"
+2025-01-30 10:34:59.909 +05:30 [INF] Bus stopped: "rabbitmq://localhost/"
+2025-01-30 11:51:35.747 +05:30 [INF] Configured endpoint user-logged-in-queue-doctor, Consumer: DoctorService.Consumers.UserLoggedInConsumer
+2025-01-30 11:51:35.794 +05:30 [INF] Configured endpoint user-register-queue-doctor, Consumer: DoctorService.Consumers.UserRegisteredConsumer
+2025-01-30 11:51:36.109 +05:30 [WRN] Overriding address(es) 'http://localhost:5057'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-30 11:51:36.162 +05:30 [INF] Bus started: "rabbitmq://localhost/"
+2025-01-30 11:52:20.422 +05:30 [INF] User verygood124332@gmail.com logged in. Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIxZWEyMTY0Mi0zNGQxLTQ1NmMtYTgyZS1lOGQ3NjdmMTVjNzUiLCJzdWIiOiI3IiwiZW1haWwiOiJ2ZXJ5Z29vZDEyNDMzMkBnbWFpbC5jb20iLCJyb2xlIjoiZG9jdG9yIiwibmJmIjoxNzM4MjE4MTM5LCJleHAiOjE3MzgyMjE3MzksImlhdCI6MTczODIxODEzOSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MTMyIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo1MTMyIn0.NZjRZRvDHbEAl3CbmycfDW2bpSN6q4bzGDOPXf5L1mU with Role doctor, Refresh Token: IeVjS9N3AxjO5qYy/XVrA6+GErA7/4vR3bJlpgPBPSU=
+2025-01-30 11:53:16.989 +05:30 [INF] User doctor@gmail.com logged in. Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIwYmVhNjdlMi05MTQ1LTQzYmQtYTM5Yy1hN2U3NTBiZTM5OTkiLCJzdWIiOiIxMCIsImVtYWlsIjoiZG9jdG9yQGdtYWlsLmNvbSIsInJvbGUiOiJkb2N0b3IiLCJuYmYiOjE3MzgyMTgxOTYsImV4cCI6MTczODIyMTc5NiwiaWF0IjoxNzM4MjE4MTk2LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUxMzIiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUxMzIifQ.LvdME8JOtKHYuoknSfbtHE0hQdNKFbrOYjuQNdFyuN8 with Role doctor, Refresh Token: bhw3NC7pUdkjXUTtwFLKefQGFm8QNt44nJSVpyh9l5o=
+2025-01-30 11:53:23.335 +05:30 [INF] Retrieving doctor with ID 2
+2025-01-30 11:54:15.937 +05:30 [INF] Updating doctor with ID 2
+2025-01-30 11:54:39.170 +05:30 [INF] Deleting doctor with ID 2
+2025-01-30 11:56:51.645 +05:30 [INF] Bus stopped: "rabbitmq://localhost/"

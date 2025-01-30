@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "JvU5GuJM20e00fmniUTuQ28eR2yP6UOsddWZJxlbFhM=",
+  "Source": "DemoAppApiGateway",
+  "BasePath": "_content/DemoAppApiGateway",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

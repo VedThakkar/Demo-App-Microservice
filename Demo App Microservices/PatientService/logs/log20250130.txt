@@ -1,0 +1,185 @@
+2025-01-30 09:25:52.769 +05:30 [INF] Configured endpoint user-logged-in-queue-patient, Consumer: PatientService.Consumers.UserLoggedInConsumer
+2025-01-30 09:25:52.816 +05:30 [INF] Configured endpoint user-register-queue-patient, Consumer: PatientService.Consumers.UserRegisteredConsumer
+2025-01-30 09:25:53.225 +05:30 [INF] Bus started: "rabbitmq://localhost/"
+2025-01-30 09:26:34.721 +05:30 [ERR] R-FAULT "rabbitmq://localhost/user-logged-in-queue-patient" "346d0000-5da2-0015-ad55-08dd40e21687" AuthService.Messages.UserLoggedIn PatientService.Consumers.UserLoggedInConsumer("00:00:00.0189816")
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at PatientService.AuthProvider.ClaimsProvider.SetClaims(UserLoggedIn userLoggedIn) in C:\Users\Ved Thakkar\Desktop\Demo App Microservice Ver\AuthService\PatientService\AuthProvider\ClaimsProvider.cs:line 35
+   at PatientService.Consumers.UserLoggedInConsumer.Consume(ConsumeContext`1 context) in C:\Users\Ved Thakkar\Desktop\Demo App Microservice Ver\AuthService\PatientService\Consumers\UserLoggedInConsumer.cs:line 21
+   at MassTransit.DependencyInjection.ScopeConsumerFactory`1.Send[TMessage](ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/DependencyInjection/DependencyInjection/ScopeConsumerFactory.cs:line 22
+   at MassTransit.DependencyInjection.ScopeConsumerFactory`1.Send[TMessage](ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/DependencyInjection/DependencyInjection/ScopeConsumerFactory.cs:line 22
+   at MassTransit.Middleware.ConsumerMessageFilter`2.MassTransit.IFilter<MassTransit.ConsumeContext<TMessage>>.Send(ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/Middleware/ConsumerMessageFilter.cs:line 48
+2025-01-30 09:27:17.261 +05:30 [INF] Retrieving patient with ID 1
+2025-01-30 09:31:11.128 +05:30 [INF] Bus stopped: "rabbitmq://localhost/"
+2025-01-30 10:26:40.392 +05:30 [INF] Configured endpoint user-logged-in-queue-patient, Consumer: PatientService.Consumers.UserLoggedInConsumer
+2025-01-30 10:26:40.447 +05:30 [INF] Configured endpoint user-register-queue-patient, Consumer: PatientService.Consumers.UserRegisteredConsumer
+2025-01-30 10:26:40.903 +05:30 [INF] Bus started: "rabbitmq://localhost/"
+2025-01-30 10:28:27.237 +05:30 [INF] Patient patient@gmail.com logged in. Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJhYzE4NjJkNC0yNDJiLTRlODUtODc0OS1mOTg4MzIxYWJjODEiLCJzdWIiOiI4IiwiZW1haWwiOiJwYXRpZW50QGdtYWlsLmNvbSIsInJvbGUiOiJwYXRpZW50IiwibmJmIjoxNzM4MjEzMTA3LCJleHAiOjE3MzgyMTY3MDcsImlhdCI6MTczODIxMzEwNywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MTMyIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo1MTMyIn0.ebX6Zp4ZPMX5lO_tYortSoBfjaaUJEFHEcCCq42bjTs with Role patient, Refresh Token: /5ttelxwB+7z0pIYh4jcU7MLO6YsiYoCmjDDbGHQfZQ=
+2025-01-30 10:28:39.206 +05:30 [INF] Retrieving patient with ID 1
+2025-01-30 10:29:44.554 +05:30 [INF] Updating patient with ID 1
+2025-01-30 10:29:44.570 +05:30 [WRN] Validation failed for Updating Patient.
+2025-01-30 10:30:24.473 +05:30 [INF] Updating patient with ID 1
+2025-01-30 10:30:24.483 +05:30 [ERR] An error occurred while updating patient with ID 1
+System.InvalidOperationException: The instance of entity type 'Patient' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, Nullable`1 fallbackState)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at PatientService.Repositories.GenericRepository`1.UpdateAsync(T entity)
+   at PatientService.Services.PatientService.UpdatePatientAsync(Int32 id, Patient updatedPatient)
+   at PatientService.APIs.PatientEndpoints.UpdatePatient(Int32 id, Patient updatedPatient, IPatientService patientService, ClaimsPrincipal user)
+2025-01-30 10:31:49.902 +05:30 [INF] Bus stopped: "rabbitmq://localhost/"
+2025-01-30 10:31:54.304 +05:30 [INF] Configured endpoint user-logged-in-queue-patient, Consumer: PatientService.Consumers.UserLoggedInConsumer
+2025-01-30 10:31:54.352 +05:30 [INF] Configured endpoint user-register-queue-patient, Consumer: PatientService.Consumers.UserRegisteredConsumer
+2025-01-30 10:31:54.721 +05:30 [INF] Bus started: "rabbitmq://localhost/"
+2025-01-30 10:32:02.591 +05:30 [INF] Updating patient with ID 1
+2025-01-30 10:32:02.806 +05:30 [ERR] Failed executing DbCommand (13ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (DbType = DateTime), @p1='?' (DbType = Date), @p2='?' (Size = 50), @p3='?' (Size = 255), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET AUTOCOMMIT = 1;
+UPDATE `patient` SET `CreatedAt` = @p0, `DateOfBirth` = @p1, `Gender` = @p2, `Name` = @p3, `UserId` = @p4
+WHERE `Id` = @p5;
+SELECT ROW_COUNT();
+2025-01-30 10:32:02.841 +05:30 [ERR] An exception occurred in the database while saving changes for context type 'PatientService.Data.PatientDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Cannot add or update a child row: a foreign key constraint fails (`patientdb`.`patient`, CONSTRAINT `patient_ibfk_1` FOREIGN KEY (`UserId`) REFERENCES `authdb`.`user` (`Id`) ON DELETE CASCADE)
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 1081
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 131
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 487
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Cannot add or update a child row: a foreign key constraint fails (`patientdb`.`patient`, CONSTRAINT `patient_ibfk_1` FOREIGN KEY (`UserId`) REFERENCES `authdb`.`user` (`Id`) ON DELETE CASCADE)
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 1081
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 131
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 487
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2025-01-30 10:32:02.858 +05:30 [ERR] An error occurred while updating patient with ID 1
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> MySqlConnector.MySqlException (0x80004005): Cannot add or update a child row: a foreign key constraint fails (`patientdb`.`patient`, CONSTRAINT `patient_ibfk_1` FOREIGN KEY (`UserId`) REFERENCES `authdb`.`user` (`Id`) ON DELETE CASCADE)
+   at MySqlConnector.Core.ServerSession.ReceiveReplyAsync(IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/ServerSession.cs:line 1081
+   at MySqlConnector.Core.ResultSet.ReadResultSetHeaderAsync(IOBehavior ioBehavior) in /_/src/MySqlConnector/Core/ResultSet.cs:line 37
+   at MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 131
+   at MySqlConnector.MySqlDataReader.InitAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, IDictionary`2 cachedProcedures, IMySqlCommand command, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlDataReader.cs:line 487
+   at MySqlConnector.Core.CommandExecutor.ExecuteReaderAsync(CommandListPosition commandListPosition, ICommandPayloadCreator payloadCreator, CommandBehavior behavior, Activity activity, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/Core/CommandExecutor.cs:line 56
+   at MySqlConnector.MySqlCommand.ExecuteReaderAsync(CommandBehavior behavior, IOBehavior ioBehavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 357
+   at MySqlConnector.MySqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken) in /_/src/MySqlConnector/MySqlCommand.cs:line 350
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at PatientService.Repositories.GenericRepository`1.UpdateAsync(T entity) in C:\Users\Ved Thakkar\Desktop\Demo App Microservice Ver\AuthService\PatientService\Repositories\GenericRepository.cs:line 44
+   at PatientService.Services.PatientService.UpdatePatientAsync(Int32 id, Patient updatedPatient) in C:\Users\Ved Thakkar\Desktop\Demo App Microservice Ver\AuthService\PatientService\Services\PatientService.cs:line 70
+   at PatientService.APIs.PatientEndpoints.UpdatePatient(Int32 id, Patient updatedPatient, IPatientService patientService, ClaimsPrincipal user) in C:\Users\Ved Thakkar\Desktop\Demo App Microservice Ver\AuthService\PatientService\APIs\PatientEndpoints.cs:line 138
+2025-01-30 10:33:09.521 +05:30 [INF] Bus stopped: "rabbitmq://localhost/"
+2025-01-30 10:33:16.146 +05:30 [INF] Configured endpoint user-logged-in-queue-patient, Consumer: PatientService.Consumers.UserLoggedInConsumer
+2025-01-30 10:33:16.190 +05:30 [INF] Configured endpoint user-register-queue-patient, Consumer: PatientService.Consumers.UserRegisteredConsumer
+2025-01-30 10:33:16.591 +05:30 [INF] Bus started: "rabbitmq://localhost/"
+2025-01-30 10:33:24.706 +05:30 [INF] Updating patient with ID 1
+2025-01-30 10:34:18.197 +05:30 [INF] Deleting patient with ID 2
+2025-01-30 10:34:59.913 +05:30 [INF] Bus stopped: "rabbitmq://localhost/"
+2025-01-30 10:58:28.421 +05:30 [INF] Configured endpoint user-logged-in-queue-patient, Consumer: PatientService.Consumers.UserLoggedInConsumer
+2025-01-30 10:58:28.469 +05:30 [INF] Configured endpoint user-register-queue-patient, Consumer: PatientService.Consumers.UserRegisteredConsumer
+2025-01-30 10:58:28.836 +05:30 [INF] Bus started: "rabbitmq://localhost/"
+2025-01-30 11:00:17.736 +05:30 [INF] Deleting patient with ID 3
+2025-01-30 11:00:44.069 +05:30 [INF] Bus stopped: "rabbitmq://localhost/"
+2025-01-30 11:23:45.221 +05:30 [INF] Configured endpoint user-logged-in-queue-patient, Consumer: PatientService.Consumers.UserLoggedInConsumer
+2025-01-30 11:23:45.269 +05:30 [INF] Configured endpoint user-register-queue-patient, Consumer: PatientService.Consumers.UserRegisteredConsumer
+2025-01-30 11:23:45.643 +05:30 [INF] Bus started: "rabbitmq://localhost/"
+2025-01-30 11:24:19.573 +05:30 [INF] Patient verygood1232@gmail.com logged in. Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIwZDhlOWMwMy1lOTJlLTRkZDYtYWRmYy01YmE4ODZhMDc4YTMiLCJzdWIiOiI2IiwiZW1haWwiOiJ2ZXJ5Z29vZDEyMzJAZ21haWwuY29tIiwicm9sZSI6InBhdGllbnQiLCJuYmYiOjE3MzgyMTY0NTgsImV4cCI6MTczODIyMDA1OCwiaWF0IjoxNzM4MjE2NDU4LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUxMzIiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUxMzIifQ.OsmQ-eUaLxQJtHp48SrJG90ST2ciRDm7xqj_qzCftok with Role patient, Refresh Token: XRZJ7rPZt++yJO5xH2a2dJ7a/37CoP2Geit506nn198=
+2025-01-30 11:24:22.507 +05:30 [ERR] R-FAULT "rabbitmq://localhost/user-logged-in-queue-patient" "e8210000-5da2-0015-efd5-08dd40f2894a" AuthService.Messages.UserLoggedIn PatientService.Consumers.UserLoggedInConsumer("00:00:03.4471743")
+System.InvalidOperationException: The provider for the source 'IQueryable' doesn't implement 'IAsyncQueryProvider'. Only providers that implement 'IAsyncQueryProvider' can be used for Entity Framework asynchronous operations.
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ExecuteAsync[TSource,TResult](MethodInfo operatorMethodInfo, IQueryable`1 source, Expression expression, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ExecuteAsync[TSource,TResult](MethodInfo operatorMethodInfo, IQueryable`1 source, LambdaExpression expression, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.FirstOrDefaultAsync[TSource](IQueryable`1 source, Expression`1 predicate, CancellationToken cancellationToken)
+   at PatientService.Services.PatientService.GetByUserIdAsync(Int32 userId) in C:\Users\Ved Thakkar\Desktop\Demo App Microservice Ver\AuthService\PatientService\Services\PatientService.cs:line 100
+   at PatientService.Consumers.UserLoggedInConsumer.Consume(ConsumeContext`1 context) in C:\Users\Ved Thakkar\Desktop\Demo App Microservice Ver\AuthService\PatientService\Consumers\UserLoggedInConsumer.cs:line 25
+   at MassTransit.DependencyInjection.ScopeConsumerFactory`1.Send[TMessage](ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/DependencyInjection/DependencyInjection/ScopeConsumerFactory.cs:line 22
+   at MassTransit.DependencyInjection.ScopeConsumerFactory`1.Send[TMessage](ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/DependencyInjection/DependencyInjection/ScopeConsumerFactory.cs:line 22
+   at MassTransit.Middleware.ConsumerMessageFilter`2.MassTransit.IFilter<MassTransit.ConsumeContext<TMessage>>.Send(ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/Middleware/ConsumerMessageFilter.cs:line 48
+2025-01-30 11:25:35.967 +05:30 [INF] Patient verygood1232@gmail.com logged in. Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4MzUwODkzMS1kNTdhLTQ0MTMtOTBjOC1mYTdjOTAzNDJhMzMiLCJzdWIiOiI2IiwiZW1haWwiOiJ2ZXJ5Z29vZDEyMzJAZ21haWwuY29tIiwicm9sZSI6InBhdGllbnQiLCJuYmYiOjE3MzgyMTY1MzUsImV4cCI6MTczODIyMDEzNSwiaWF0IjoxNzM4MjE2NTM1LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUxMzIiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUxMzIifQ.Ey6VLZyAumOUE4KXVyLVhnHhyHNFsnNEtfCLm8er6SY with Role patient, Refresh Token: yX2OVjX+bZyChtTKvesSaCQX1rB1zNjazZ9ZeANbjHE=
+2025-01-30 11:25:35.991 +05:30 [ERR] R-FAULT "rabbitmq://localhost/user-logged-in-queue-patient" "e8210000-5da2-0015-d99a-08dd40f2b75c" AuthService.Messages.UserLoggedIn PatientService.Consumers.UserLoggedInConsumer("00:00:00.0787910")
+System.InvalidOperationException: The provider for the source 'IQueryable' doesn't implement 'IAsyncQueryProvider'. Only providers that implement 'IAsyncQueryProvider' can be used for Entity Framework asynchronous operations.
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ExecuteAsync[TSource,TResult](MethodInfo operatorMethodInfo, IQueryable`1 source, Expression expression, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ExecuteAsync[TSource,TResult](MethodInfo operatorMethodInfo, IQueryable`1 source, LambdaExpression expression, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.FirstOrDefaultAsync[TSource](IQueryable`1 source, Expression`1 predicate, CancellationToken cancellationToken)
+   at PatientService.Services.PatientService.GetByUserIdAsync(Int32 userId) in C:\Users\Ved Thakkar\Desktop\Demo App Microservice Ver\AuthService\PatientService\Services\PatientService.cs:line 100
+   at PatientService.Consumers.UserLoggedInConsumer.Consume(ConsumeContext`1 context) in C:\Users\Ved Thakkar\Desktop\Demo App Microservice Ver\AuthService\PatientService\Consumers\UserLoggedInConsumer.cs:line 25
+   at MassTransit.DependencyInjection.ScopeConsumerFactory`1.Send[TMessage](ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/DependencyInjection/DependencyInjection/ScopeConsumerFactory.cs:line 22
+   at MassTransit.DependencyInjection.ScopeConsumerFactory`1.Send[TMessage](ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/DependencyInjection/DependencyInjection/ScopeConsumerFactory.cs:line 22
+   at MassTransit.Middleware.ConsumerMessageFilter`2.MassTransit.IFilter<MassTransit.ConsumeContext<TMessage>>.Send(ConsumeContext`1 context, IPipe`1 next) in /_/src/MassTransit/Middleware/ConsumerMessageFilter.cs:line 48
+2025-01-30 11:28:47.236 +05:30 [INF] Patient verygood1232@gmail.com logged in. Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJhMzNiOWE3OC02MWM3LTRlODEtYmVhOC04YmFlNzk2YTEwYmMiLCJzdWIiOiI2IiwiZW1haWwiOiJ2ZXJ5Z29vZDEyMzJAZ21haWwuY29tIiwicm9sZSI6InBhdGllbnQiLCJuYmYiOjE3MzgyMTY3MjcsImV4cCI6MTczODIyMDMyNywiaWF0IjoxNzM4MjE2NzI3LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUxMzIiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUxMzIifQ.lhWbb2b1VSIp-6zX5w4Rlh8e7dO29A0Ha-w00OTVCy8 with Role patient, Refresh Token: w+hlKefvaiIjQ3wqUSbshoKwUpThHaTnV5Fk+fwjl+M=
+2025-01-30 11:34:07.248 +05:30 [INF] Bus stopped: "rabbitmq://localhost/"
+2025-01-30 11:51:46.767 +05:30 [INF] Configured endpoint user-logged-in-queue-patient, Consumer: PatientService.Consumers.UserLoggedInConsumer
+2025-01-30 11:51:46.815 +05:30 [INF] Configured endpoint user-register-queue-patient, Consumer: PatientService.Consumers.UserRegisteredConsumer
+2025-01-30 11:51:47.218 +05:30 [INF] Bus started: "rabbitmq://localhost/"
+2025-01-30 11:52:02.570 +05:30 [INF] Patient verygood1232@gmail.com logged in. Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI2M2YzNGEwYy1kMzM3LTRmNjktYmU1Mi05M2ZjNjBlZWZlMjEiLCJzdWIiOiI2IiwiZW1haWwiOiJ2ZXJ5Z29vZDEyMzJAZ21haWwuY29tIiwicm9sZSI6InBhdGllbnQiLCJuYmYiOjE3MzgyMTgxMjEsImV4cCI6MTczODIyMTcyMSwiaWF0IjoxNzM4MjE4MTIxLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUxMzIiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUxMzIifQ._iDcZGU0XOfHLEJcVugoh1k1UEFSiY2NlL_jishPcKc with Role patient, Refresh Token: FnYzA24EozvIrIOJtj/S6hiEJqxneGK1J+nzvnn2GVk=
+2025-01-30 11:56:51.638 +05:30 [INF] Bus stopped: "rabbitmq://localhost/"
+2025-01-30 12:10:56.705 +05:30 [INF] Configured endpoint user-logged-in-queue-patient, Consumer: PatientService.Consumers.UserLoggedInConsumer
+2025-01-30 12:10:56.754 +05:30 [INF] Configured endpoint user-register-queue-patient, Consumer: PatientService.Consumers.UserRegisteredConsumer
+2025-01-30 12:10:57.143 +05:30 [INF] Bus started: "rabbitmq://localhost/"
+2025-01-30 12:11:14.493 +05:30 [INF] Patient verygood1232@gmail.com logged in. Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJkYWZmM2Q3OS1mMmEzLTQ4ZWUtOTU3MC0wMGJkZmQ1MjZhZTIiLCJzdWIiOiI2IiwiZW1haWwiOiJ2ZXJ5Z29vZDEyMzJAZ21haWwuY29tIiwicm9sZSI6InBhdGllbnQiLCJuYmYiOjE3MzgyMTkyNzMsImV4cCI6MTczODIyMjg3MywiaWF0IjoxNzM4MjE5MjczLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUxMzIiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUxMzIifQ.xDphvBm6ETWr_QyIga-wRdMCHqqNge4tHb5sD5IMm7A with Role patient, Refresh Token: 00dY0HJW9ZbBVqD5/VXI96tp3XjgOPAezCWJQGZ/1K8=
+2025-01-30 12:12:29.425 +05:30 [INF] Bus stopped: "rabbitmq://localhost/"
+2025-01-30 12:13:08.717 +05:30 [INF] Configured endpoint user-logged-in-queue-patient, Consumer: PatientService.Consumers.UserLoggedInConsumer
+2025-01-30 12:13:08.763 +05:30 [INF] Configured endpoint user-register-queue-patient, Consumer: PatientService.Consumers.UserRegisteredConsumer
+2025-01-30 12:13:09.120 +05:30 [INF] Bus started: "rabbitmq://localhost/"
+2025-01-30 12:13:16.978 +05:30 [INF] Patient verygood1232@gmail.com logged in. Access Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIwM2I2OTI0My0yMDVjLTRkZmMtOTAxMy05MjBhMDcwMWMxYmUiLCJzdWIiOiI2IiwiZW1haWwiOiJ2ZXJ5Z29vZDEyMzJAZ21haWwuY29tIiwicm9sZSI6InBhdGllbnQiLCJuYmYiOjE3MzgyMTkzOTUsImV4cCI6MTczODIyMjk5NSwiaWF0IjoxNzM4MjE5Mzk1LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUxMzIiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUxMzIifQ.fE4DuqtQt6I33HwuzeyIoD886Me4z_2FpiwN8tf2UlE with Role patient, Refresh Token: fkbgMi1kmia5x6J4ZvMHXlgQw7duVP11E+yJZCzLifI=
+2025-01-30 12:13:31.036 +05:30 [INF] Bus stopped: "rabbitmq://localhost/"
