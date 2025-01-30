@@ -1,0 +1,194 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/login",
+      "UpstreamPathTemplate": "/auth/login",
+      "UpstreamHttpMethod": ["POST"],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5261
+        }
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/register",
+      "UpstreamPathTemplate": "/auth/register",
+      "UpstreamHttpMethod": ["POST"],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5261
+        }
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/patients",
+      "UpstreamPathTemplate": "/patient/patients",
+      "UpstreamHttpMethod": ["GET"],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5057
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "AuthorizationOptions": {
+        "Policy": "AdminOnly" 
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/patients/{id}",
+      "UpstreamPathTemplate": "/patient/patients/{id}",
+      "UpstreamHttpMethod": ["GET"],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5057
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "AuthorizationOptions": {
+        "Policy": "AdminPatient"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/patients",
+      "UpstreamPathTemplate": "/patient/patients",
+      "UpstreamHttpMethod": ["POST"],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5057
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "AuthorizationOptions": {
+        "Policy": "AdminOnly"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/patients/{id}",
+      "UpstreamPathTemplate": "/patient/patients/{id}",
+      "UpstreamHttpMethod": ["PUT"],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5057
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "AuthorizationOptions": {
+        "Policy": "AdminPatient"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/patients/{id}",
+      "UpstreamPathTemplate": "/patient/patients/{id}",
+      "UpstreamHttpMethod": ["DELETE"],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5057
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "AuthorizationOptions": {
+        "Policy": "AdminPatient"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/doctors",
+      "UpstreamPathTemplate": "/doctor/doctors",
+      "UpstreamHttpMethod": ["GET"],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5058
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/doctors/{id}",
+      "UpstreamPathTemplate": "/doctor/doctors/{id}",
+      "UpstreamHttpMethod": ["GET"],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5058
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/doctors",
+      "UpstreamPathTemplate": "/doctor/doctors",
+      "UpstreamHttpMethod": ["POST"],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5058
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "AuthorizationOptions": {
+        "Policy": "AdminOnly"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/doctors/{id}",
+      "UpstreamPathTemplate": "/doctor/doctors/{id}",
+      "UpstreamHttpMethod": ["PUT"],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5058
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "AuthorizationOptions": {
+        "Policy": "AdminDoctor"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/doctors/{id}",
+      "UpstreamPathTemplate": "/doctor/doctors/{id}",
+      "UpstreamHttpMethod": ["DELETE"],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5058
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      },
+      "AuthorizationOptions": {
+        "Policy": "AdminDoctor"
+      }
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:6000"
+  }
+}
