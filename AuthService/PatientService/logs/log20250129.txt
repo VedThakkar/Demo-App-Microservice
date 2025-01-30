@@ -1,4 +1,0 @@
-2025-01-29 18:19:54.699 +05:30 [INF] Configured endpoint user-logged-in-queue-patient, Consumer: PatientService.Consumers.UserLoggedInConsumer
-2025-01-29 18:19:54.745 +05:30 [INF] Configured endpoint user-register-queue-patient, Consumer: PatientService.Consumers.UserRegisteredConsumer
-2025-01-29 18:19:55.132 +05:30 [INF] Bus started: "rabbitmq://localhost/"
-2025-01-29 18:29:26.664 +05:30 [INF] Bus stopped: "rabbitmq://localhost/"
